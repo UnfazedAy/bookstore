@@ -8,7 +8,11 @@ const genreSchema = new Schema({
     trim: true,
     maxlength: [100, 'Description cannot be more than 100 characters']
   },
-}, { timestamps: true });
+}, {
+  timestamps: true,
+  toJSON: { virtuals: true },
+  toObject: { virtuals: true },
+});
 
 // Virtual populate Books for Genre, a genre can have many books
 genreSchema.virtual('books', {

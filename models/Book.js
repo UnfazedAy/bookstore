@@ -14,8 +14,11 @@ const bookSchema = new Schema({
     required: true 
   },
   publishedDate: { type: Date, default: Date.now },
-}, { timestamps: true }
-);
+}, {
+  timestamps: true,
+  toJSON: { virtuals: true },
+  toObject: { virtuals: true },
+});
 
 const Book = model('Book', bookSchema);
 
