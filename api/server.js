@@ -1,13 +1,13 @@
 import express from 'express';
-import logger from './config/logger.js';
-import connectDB from './config/db.js';
-import keys from './config/keys.js';
+import logger from '../config/logger.js';
+import connectDB from '../config/db.js';
+import keys from '../config/keys.js';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
-import authorRouter from './routes/authorRoutes.js';
-import genreRouter from './routes/genreRoutes.js';
-import bookRouter from './routes/bookRoutes.js';
-import errorHandler from './middlewares/error.js';
+import authorRouter from '../routes/authorRoutes.js';
+import genreRouter from '../routes/genreRoutes.js';
+import bookRouter from '../routes/bookRoutes.js';
+import errorHandler from '../middlewares/error.js';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import colors from 'colors';
 

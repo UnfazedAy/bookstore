@@ -1,4 +1,4 @@
-import app from './server.js';
+import app from './api/server.js';
 import keys from './config/keys.js';
 import logger from './config/logger.js';
 
