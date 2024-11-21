@@ -11,7 +11,7 @@ import errorHandler from './middlewares/error.js';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import colors from 'colors';
 
-const { PORT, NODE_ENV, HOST } = keys;
+const { NODE_ENV } = keys;
 connectDB();
 
 const app = express();
@@ -38,15 +38,9 @@ app.use('/api/v1/books', bookRouter);
 // Error handler
 app.use(errorHandler);
 
-const server = app.listen(PORT, () => {
-  logger.info(
-    `Server running in mode on ${NODE_ENV} http://${HOST}:${PORT}`.yellow.bold
-  );
-});
+// Log startup message (for local development only)
+if (process.env.NODE_ENV !== 'production') {
+  logger.info(`Server running in ${NODE_ENV} mode`.yellow.bold);
+}
 
-process.on('unhandledRejection', (err) => {
-  logger.error(`Error: ${err.message}`.red);
-  server.close(() => process.exit(1));
-});
-
-export default server;
+export default app;
